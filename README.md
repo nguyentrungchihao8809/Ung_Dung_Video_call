@@ -10,3 +10,5 @@ môn học Lập trình mạng
 #Drive - lưu sơ đồ (https://drive.google.com/file/d/183L80VqylJP8VFYW4MFkU1zB0J5MfRRi/view?usp=drive_link)
 
 #lịch trình (https://docs.google.com/spreadsheets/d/1kLOeK_1V13Mr63khJqJU6auJ_cKS5bVigE3e_S9Xfqk/edit?hl=vi&gid=156550951#gid=156550951)
+
+#Meet (https://meet.google.com/bbw-kvmh-mdo)
