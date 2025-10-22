@@ -8,3 +8,5 @@ môn học Lập trình mạng
 (https://app.diagrams.net/)
 
 #Drive - lưu sơ đồ (https://drive.google.com/file/d/183L80VqylJP8VFYW4MFkU1zB0J5MfRRi/view?usp=drive_link)
+
+#lịch trình (https://docs.google.com/spreadsheets/d/e/2PACX-1vTNhLC8-bDObG9UXN6HVtDr_3iEuYLYBtMX_7CNDV1UkMRF8DHbnwUMDvTZsjapxSk9Z6CRy55BCaPp/pub?gid=0&single=true&output=csv)
