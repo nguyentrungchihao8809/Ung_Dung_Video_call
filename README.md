@@ -6,3 +6,5 @@ môn học Lập trình mạng
 
 #Draw - thiết kế kiến trúc hệ thống
 (https://app.diagrams.net/)
+
+#Drive - lưu sơ đồ (https://drive.google.com/file/d/183L80VqylJP8VFYW4MFkU1zB0J5MfRRi/view?usp=drive_link)
