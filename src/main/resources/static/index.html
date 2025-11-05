@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Video Call</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<a href="javascript:history.back()" class="back-button">
+        <img src="muiten.jpg" alt="Quay lại">
+    </a>    
+    <div class="container" id="joinContainer">
+        <div class="signup-card">
+            <h1>Tham gia video call</h1>
+            
+           <div class="input-group">
+                <input type="text" id="usernameInput" placeholder="Nhập tên của bạn">
+                <input type="text" id="roomInput" placeholder="Nhập ID phòng">
+            </div>
+            <button id="joinBtn" onclick="joinRoom()">Tham gia phòng</button>
+        </div>
+
+
+            <div class="welcome-section">
+            <img src="video3.GIF" alt="Welcome GIF" class="background-gif">
+
+
+
+
+
+        <div class="welcome-section">
+            <div class="welcome-card">
+                <h2>Bấm tham gia</h2>
+                <p>Mở ra cách trò chuyện mới, nơi mọi người có thể gặp gỡ và sẽ chia sẻ ở bất kỳ đâu. Chỉ một cú chạm, khoảng cách trở nên gần hơn bao giờ hết.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-section" id="videoSection">
+        <div id="statusDiv" class="status"></div>
+        
+        <div class="users-list" id="usersList" style="display:none;">
+            <h3>Người dùng trong phòng:</h3>
+            <div id="usersContainer"></div>
+        </div>
+        
+        <div class="videos">
+            <div class="video-container">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-label">Bạn</div>
+            </div>
+
+
+                <div class="video-container">
+                <video id="remoteVideo" autoplay muted playsinline></video>
+                <div class="video-label">Đối phương</div>
+            </div>
+
+        </div>
+        
+        <div class="controls">
+            <!-- NÚT CAMERA với icon -->
+            <button class="control-btn btn-warning" id="cameraButton" onclick="toggleVideoWithIcon()">
+                <img id="cameraIcon" src="cam.png" alt="Camera" style="width: 30px; height: 30px; vertical-align: middle;">
+            </button>
+            
+            <!-- NÚT MIC với icon -->
+            <button class="control-btn btn-warning" id="micButton" onclick="toggleAudioWithIcon()">
+                <img id="micIcon" src="mic.png" alt="Microphone" style="width: 30px; height: 30px; vertical-align: middle;">
+            </button>
+            
+            <!-- NÚT RỜI PHÒNG với icon -->
+            <button class="control-btn btn-danger" id="phoneButton" onclick="leaveRoom()">
+                <img id="phoneIcon" src="phone.png" alt="Phone" style="width: 30px; height: 30px; vertical-align: middle;">
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    
+    <!-- SCRIPT CHUYỂN ĐỔI ICON -->
+    <script>
+        // Biến lưu trạng thái (mặc định: đang mở)
+        let isCameraOn = true;
+        let isMicOn = true;
+        
+        // HÀM CHUYỂN ĐỔI CAMERA
+        function toggleVideoWithIcon() {
+            const cameraButton = document.getElementById('cameraButton');
+            const cameraIcon = document.getElementById('cameraIcon');
+            
+            // Gọi hàm toggleVideo gốc để tắt/bật camera thực sự
+            toggleVideo();
+            
+            // Đổi icon
+            if (isCameraOn) {
+                cameraIcon.src = 'camoff.png';  // Đổi sang icon tắt
+                cameraButton.style.background = '#dc3545'; // Đổi màu nút sang đỏ
+                isCameraOn = false;
+            } else {
+                cameraIcon.src = 'cam.png';     // Đổi sang icon mở
+                cameraButton.style.background = '#f9f9f9'; // Đổi màu nút về trắng
+                isCameraOn = true;
+            }
+        }
+        
+        // HÀM CHUYỂN ĐỔI MIC
+        function toggleAudioWithIcon() {
+            const micButton = document.getElementById('micButton');
+            const micIcon = document.getElementById('micIcon');
+            
+            // Gọi hàm toggleAudio gốc để tắt/bật mic thực sự
+            toggleAudio();
+            
+            // Đổi icon
+            if (isMicOn) {
+                micIcon.src = 'micoff.png';     // Đổi sang icon tắt
+                micButton.style.background = '#dc3545'; // Đổi màu nút sang đỏ
+                isMicOn = false;
+            } else {
+                micIcon.src = 'mic.png';        // Đổi sang icon mở
+                micButton.style.background = '#f9f9f9'; // Đổi màu nút về trắng
+                isMicOn = true;
+            }
+        }
+        
+        // Cập nhật hàm leaveRoom để hiển thị icon phoneoff khi hover
+        document.getElementById('phoneButton').addEventListener('mouseenter', function() {
+            document.getElementById('phoneIcon').src = 'phoneoff.png';
+        });
+        
+        document.getElementById('phoneButton').addEventListener('mouseleave', function() {
+            document.getElementById('phoneIcon').src = 'phone.png';
+        });
+    </script>
+</body>
+</html>

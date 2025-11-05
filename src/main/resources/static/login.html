@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="login.css"> 
+</head>
+<body>
+    <div class="page-transition"></div>
+    
+    <div class="container" id="mainContent">
+        <div class="welcome-section">
+            <img src="video1.gif" alt="Welcome GIF" class="background-gif">
+            
+            <div class="welcome-card">
+                <h2>Bắt đầu cuộc gọi video đầu tiên của bạn ngay bây giờ.</h2>
+                <p>Nếu bạn chưa có tài khoản, hãy tham gia cùng chúng tôi và kết nối với mọi người ngay lập tức.</p>
+                <button class="btn-login" onclick="goToRegister()">Đăng ký</button>
+            </div>
+        </div>
+
+        <div class="signup-card">
+            <h1>Đăng Nhập</h1>
+            <img src="taikhoan.png" alt="Tài Khoản" class="ic-account">
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Tên đăng nhập...." required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Mật khẩu...." required>
+                </div>
+                <button type="submit" class="btn-signup">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="transition.js"></script>
+</body>
+</html>

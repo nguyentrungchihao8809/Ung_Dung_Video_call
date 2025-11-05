@@ -1,0 +1,264 @@
+/* --- RESET MARGIN & PADDING VÀ THIẾT LẬP BOX MODEL --- */
+* { 
+    margin: 0; /* Xóa khoảng cách mặc định của mọi phần tử */
+    padding: 0; /* Xóa khoảng cách bên trong mọi phần tử */
+    box-sizing: border-box; /* Đảm bảo kích thước của phần tử bao gồm cả padding và border */
+}
+
+/* --- BODY CƠ BẢN --- */
+body {
+    font-family: futura-pt, sans-serif; /* Chọn font chữ */
+    background-color: #000000; /* Màu nền của trang */
+    display: flex; /* Sử dụng flexbox để căn giữa */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    min-height: 100vh; /* Đảm bảo chiều cao luôn đầy đủ màn hình */
+    overflow: hidden; /* Ẩn thanh cuộn nếu không cần thiết */
+}
+
+/* --- PAGE TRANSITION OVERLAY --- */
+.page-transition {
+    position: fixed; /* Đặt phần tử ở vị trí cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100%; /* Chiều rộng 100% của màn hình */
+    height: 100%; /* Chiều cao 100% của màn hình */
+    background: #000; /* Màu nền đen */
+    z-index: 9999; /* Đảm bảo overlay sẽ ở trên cùng */
+    pointer-events: none; /* Không cho phép tương tác với overlay */
+    opacity: 0; /* Ban đầu ẩn đi */
+    transition: opacity 0.5s ease; /* Thêm hiệu ứng mờ khi hiển thị */
+}
+
+.page-transition.active {
+    opacity: 1; /* Hiển thị overlay khi lớp active được thêm */
+}
+
+/* --- CONTAINER (Vùng chứa chính) --- */
+.container {
+    display: flex; /* Sử dụng flexbox để căn giữa các phần tử */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    width: 100%;
+    height: 100vh; /* Chiều cao 100% của màn hình */
+    gap: 40px; /* Khoảng cách giữa các phần tử trong container */
+    opacity: 0; /* Ban đầu ẩn đi */
+    animation: slideInFromRight 0.8s ease forwards; /* Hiệu ứng di chuyển từ phải sang trái */
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px); /* Bắt đầu từ ngoài màn hình */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Kết thúc tại vị trí bình thường */
+    }
+}
+
+/* --- FORM ĐĂNG KÝ --- */
+.signup-card {
+    background: #f5f5f5; /* Màu nền của thẻ đăng ký */
+    border-radius: 30px; /* Bo góc thẻ */
+    padding: 50px 40px; /* Thêm khoảng cách bên trong */
+    height: 780px; /* Chiều cao cố định cho thẻ */
+    width: 700px; /* Chiều rộng cố định cho thẻ */
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), /* Hiệu ứng bóng đổ cho thẻ */
+                -2px -2px 12px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+                2px 2px 8px rgba(0, 0, 0, .3);
+    margin-left: 20px; /* Khoảng cách trái */
+}
+
+.signup-card h1 {
+    position: relative; /* Để tạo hiệu ứng cho tiêu đề */
+    font-size: 48px; /* Kích thước chữ tiêu đề */
+    margin-bottom: 100px; /* Khoảng cách dưới tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #000; /* Màu chữ */
+    z-index: 1; /* Đảm bảo tiêu đề nằm trên các phần tử khác */
+}
+
+.signup-card h1::after {
+    content: ''; /* Tạo hiệu ứng đường dưới tiêu đề */
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translateX(-50%);
+    width: 205px; /* Chiều dài đường */
+    height: 7px; /* Chiều cao đường */
+    border-radius: 999px; /* Bo góc cho đường */
+    background: linear-gradient(to right, #FD9CD8, #FD9CD8); /* Tạo màu gradient cho đường */
+    z-index: -1; /* Đảm bảo đường nằm dưới tiêu đề */
+}
+
+.form-group {
+    margin-bottom: 40px; /* Khoảng cách dưới mỗi input */
+    width: 100%; /* Đảm bảo các input chiếm toàn bộ chiều rộng */
+}
+
+input {
+    width: 100%; /* Chiều rộng 100% */
+    height: 70px; /* Chiều cao input */
+    padding: 18px 20px; /* Khoảng cách trong input */
+    border: none;
+    border-radius: 15px; /* Bo góc cho input */
+    background: #ecf0f3; /* Màu nền cho input */
+    font-size: 16px; /* Kích thước chữ trong input */
+    color: #333; /* Màu chữ trong input */
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1), /* Hiệu ứng bóng trong input */
+                inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+                inset 2px 2px 8px rgba(0, 0, 0, .3);
+    transition: all 0.3s; /* Thêm hiệu ứng khi thay đổi trạng thái */
+}
+
+input:focus {
+    outline: none; /* Xóa viền khi focus */
+    background: #ddd; /* Đổi màu nền khi focus */
+    transform: translateY(-2px); /* Di chuyển input lên khi focus */
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* --- Nút đăng ký - Chỉnh sửa lại kiểu dáng giống ảnh --- */
+.btn-signup {
+    width: 70%; /* Chiều rộng của nút */
+    height: 70px; /* Chiều cao của nút */
+    padding: 15px;
+    border: none;
+    border-radius: 50px; /* Tạo nút tròn mềm mại */
+    background: #ecf0f3; /* Màu nền giống với mã gốc */
+    color: #f252a5; /* Màu chữ giống màu code gốc */
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer; /* Con trỏ chuột dạng tay khi hover */
+    margin-top: 50px; /* Khoảng cách trên của nút */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+                -2px -2px 12px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+                2px 2px 8px rgba(0, 0, 0, .3); /* Giữ lại hiệu ứng bóng cho nút */
+    transition: all 0.3s; /* Thêm hiệu ứng khi hover */
+}
+
+.btn-signup:hover {
+    background: #f2f2f2; /* Màu nền khi hover */
+    transform: translateY(-2px); /* Hiệu ứng di chuyển khi hover */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng khi hover */
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* --- Vòng tròn hình tài khoản --- */
+.ic-account {
+    width: 100px; /* Kích thước ảnh */
+    height: 100px;
+    margin-top: -50px; /* Khoảng cách từ phần tử trên */
+    margin-left: auto; /* Căn giữa theo chiều ngang */
+    margin-right: auto; /* Căn giữa theo chiều ngang */
+    margin-bottom: 20px; /* Thêm khoảng cách dưới ảnh */
+    display: block; /* Đảm bảo phần tử là block để margin tự căn giữa */
+    border-radius: 50%; /* Tạo hình tròn */
+    background-color: #ecf0f3; /* Màu nền giống như box */
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+                -2px -2px 12px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+                2px 2px 8px rgba(0, 0, 0, .3); /* Giữ lại bóng cho vòng tròn */
+    background-image: url('taikhoan.png'); /* Đảm bảo đường dẫn ảnh đúng */
+    background-position: center; /* Căn giữa ảnh trong vòng tròn */
+    background-size: 50px; /* Kích thước ảnh trong vòng tròn */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+}
+
+
+
+/* --- WELCOME SECTION (bên phải) --- */
+.welcome-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.welcome-section .background-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh GIF phủ kín vùng */
+    z-index: -1; /* Đặt ảnh GIF dưới các phần tử khác */
+}
+
+/* --- Thẻ trắng nội dung --- */
+.welcome-card {
+    background: rgba(255, 255, 255, 0.9); /* Màu nền thẻ */
+    border-radius: 25px; /* Bo góc thẻ */
+    padding: 35px 40px; /* Khoảng cách trong thẻ */
+    width: 450px; /* Chiều rộng của thẻ */
+    max-width: 100%;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2); /* Hiệu ứng bóng cho thẻ */
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Đảm bảo thẻ nằm trên nền */
+}
+
+.welcome-card h2 {
+    font-size: 24px;
+    margin-bottom: 5px; /* Khoảng cách dưới tiêu đề */
+    color: #000; /* Màu chữ tiêu đề */
+}
+
+.welcome-card p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1px;
+}
+
+.welcome-card p:last-child {
+    font-size: 14px; /* Kích thước chữ nhỏ cho đoạn văn bản cuối cùng */
+    color: #666; /* Màu chữ nhạt hơn */
+}
+
+/* --- Nút đăng nhập tách riêng --- */
+.btn-login {
+    width: 80%; /* Chiều rộng nút */
+    height: 70px; /* Chiều cao nút */
+    padding: 15px;
+    border: none;
+    border-radius: 15px; /* Bo góc nút */
+    background: linear-gradient(135deg, #FD9CD8, #FD9CD8); /* Màu nền gradient */
+    color: white; /* Màu chữ trắng */
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer; /* Con trỏ chuột dạng tay khi hover */
+    transition: all 0.3s; /* Thêm hiệu ứng khi hover */
+    margin-top: 15px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px); /* Hiệu ứng di chuyển khi hover */
+    box-shadow: 0 5px 25px rgba(255, 20, 147, 0.4); /* Hiệu ứng bóng khi hover */
+}
+
+/* --- Responsive cho màn hình nhỏ hơn --- */
+@media (max-width: 968px) {
+    .container {
+        flex-direction: column; /* Đổi chiều của container cho màn hình nhỏ */
+    }
+    .welcome-section {
+        order: -1;
+        min-height: 400px; /* Đảm bảo phần welcome có chiều cao đủ */
+    }
+    .btn-login {
+        width: 80%; /* Đảm bảo nút đăng nhập rộng vừa màn hình */
+    }
+}
