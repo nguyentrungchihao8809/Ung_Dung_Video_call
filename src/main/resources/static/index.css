@@ -1,128 +1,120 @@
 /* --- RESET MARGIN & PADDING VÀ THIẾT LẬP BOX MODEL --- */
 * { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Loại bỏ tất cả margin */
+    padding: 0; /* Loại bỏ tất cả padding */
+    box-sizing: border-box; /* Đảm bảo padding và border không ảnh hưởng đến kích thước tổng thể */
 }
 
 /* --- BODY CƠ BẢN --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; /* Chọn font chữ */
+    background: #000; /* Nền màu đen */
+    display: flex; /* Sử dụng Flexbox để căn giữa nội dung */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    min-height: 100vh; /* Chiều cao của body chiếm 100% viewport */
+    overflow: hidden; /* Ẩn các phần tử vượt ngoài chiều cao */
+    position: relative; /* Định vị các phần tử con */
 }
 
 /* --- PAGE TRANSITION OVERLAY --- */
 .page-transition {
-    position: fixed;
+    position: fixed; /* Định vị cố định ở vị trí màn hình */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    width: 100%; /* Chiếm hết chiều rộng */
+    height: 100%; /* Chiếm hết chiều cao */
+    background: #000; /* Màu nền đen */
+    z-index: 9999; /* Đảm bảo phần overlay nằm trên tất cả các phần tử khác */
+    pointer-events: none; /* Tắt các sự kiện chuột trên phần tử này */
+    opacity: 0; /* Mặc định ẩn */
+    transition: opacity 0.5s ease; /* Hiệu ứng mờ dần khi thay đổi opacity */
 }
 
 .page-transition.active {
-    opacity: 1;
+    opacity: 1; /* Khi class 'active' được thêm vào, sẽ hiển thị */
 }
 
 /* --- NÚT QUAY LẠI --- */
 .back-button {
-    position: fixed;
-    top: 10px;
-    left: 15px;
-    width: 50px;
+    position: fixed; /* Định vị cố định */
+    top: 10px; /* Cách top 10px */
+    left: 15px; /* Cách trái 15px */
+    width: 50px; /* Kích thước nút */
     height: 50px;
-    z-index: 1000;
-    cursor: pointer;
-    transition: transform 0.3s;
+    z-index: 1000; /* Đảm bảo nút luôn hiển thị trên các phần tử khác */
+    cursor: pointer; /* Chỉ thị con trỏ chuột khi hover */
+    transition: transform 0.3s; /* Hiệu ứng di chuyển khi hover */
 }
 
 .back-button img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
+    width: 90%; /* Hình ảnh trong nút chiếm 90% chiều rộng */
+    height: 90%; /* Chiếm 90% chiều cao */
+    object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
 }
 
 .back-button:hover {
-    transform: translateX(-5px);
+    transform: translateX(-5px); /* Di chuyển nút qua trái khi hover */
 }
-
-
-
-
-
-
-
 
 /* --- CONTAINER (Vùng chứa chính) --- */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    gap: 40px;
-    opacity: 0;
-    animation: slideInFromRight 0.8s ease forwards;
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    width: 100%; /* Chiếm hết chiều rộng */
+    height: 100vh; /* Chiếm hết chiều cao */
+    gap: 40px; /* Khoảng cách giữa các phần tử con */
+    opacity: 0; /* Mặc định ẩn */
+    animation: slideInFromRight 0.8s ease forwards; /* Hiệu ứng slide-in từ phải sang trái */
 }
 
 @keyframes slideInFromRight {
     from {
-        opacity: 0;
-        transform: translateX(100px);
+        opacity: 0; /* Bắt đầu từ ẩn */
+        transform: translateX(100px); /* Bắt đầu từ phải */
     }
     to {
-        opacity: 1;
-        transform: translateX(0);
+        opacity: 1; /* Kết thúc với trạng thái hiển thị */
+        transform: translateX(0); /* Dừng tại vị trí ban đầu */
     }
 }
 
 /* --- FORM THAM GIA --- */
 .signup-card {
-    background: #f5f5f5;
-    border-radius: 30px;
-    padding: 50px 40px;
+    background: #f5f5f5; /* Nền sáng */
+    border-radius: 30px; /* Bo tròn các góc */
+    padding: 50px 40px; /* Khoảng cách padding trong form */
     height: 700px;
     width: 600px;
-    margin-left:50px;
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
-    margin-left: 50px;
+    margin-left: 50px; /* Khoảng cách từ bên trái */
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1); /* Đổ bóng cho form */
 }
 
 .signup-card h1 {
     position: relative;
-    font-size: 42px;
-    margin-bottom: 80px;
-    text-align: left;
+    font-size: 42px; /* Kích thước chữ tiêu đề */
+    margin-bottom: 80px; /* Khoảng cách dưới tiêu đề */
+    text-align: left; /* Căn trái tiêu đề */
     color: #000;
-    margin-left:60px;
-    z-index: 1;
+    margin-left: 60px;
+    z-index: 1; /* Đảm bảo tiêu đề hiển thị trên các phần tử khác */
 }
 
 .signup-card h1::after {
-    content: '';
+    content: ''; /* Tạo một phần tử giả */
     position: absolute;
     left: 0;
-    top: 75%;
+    top: 75%; /* Vị trí của đường kẻ dưới */
     width: 390px;
     height: 7px;
-    border-radius: 999px;
-    background: linear-gradient(to right, #FD9CD8, #FD9CD8);
-    z-index: -1;
+    border-radius: 999px; /* Bo tròn đường kẻ */
+    background: linear-gradient(to right, #FD9CD8, #FD9CD8); /* Màu gradient cho đường kẻ */
+    z-index: -1; /* Đảm bảo đường kẻ nằm dưới tiêu đề */
 }
 
 .form-group {
-    margin-bottom: 45px;
+    margin-bottom: 45px; /* Khoảng cách dưới giữa các nhóm input */
     width: 100%;
 }
 
@@ -135,22 +127,21 @@ input {
     background: #e8e8e8;
     font-size: 16px;
     color: #333;
-    transition: all 0.3s;
-    margin-bottom: 50px; /* ✅ khoảng cách giữa các input */
-
+    transition: all 0.3s; /* Hiệu ứng chuyển động khi thay đổi trạng thái */
+    margin-bottom: 50px; /* Khoảng cách giữa các input */
 }
 
 input::placeholder {
-    color: #aaa;
+    color: #aaa; /* Màu chữ placeholder */
 }
 
 input:focus {
-    outline: none;
-    background: #ddd;
-    transform: translateY(-2px);
+    outline: none; /* Loại bỏ viền khi input được focus */
+    background: #ddd; /* Đổi nền khi focus */
+    transform: translateY(-2px); /* Di chuyển input lên khi focus */
 }
 
-/* ✅ Sửa lại từ .btn-signup thành #joinBtn cho khớp HTML */
+/* --- NÚT ĐĂNG KÝ --- */
 #joinBtn {
     width: 65%;
     height: 70px;
@@ -162,7 +153,7 @@ input:focus {
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 40px; /* giảm từ 170px xuống 40px cho cân đối hơn */
+    margin-top: 40px; /* Khoảng cách trên nút */
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -170,39 +161,30 @@ input:focus {
 }
 
 #joinBtn:hover {
-    background: #2d2d2d;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background: #2d2d2d; /* Màu nền khi hover */
+    transform: translateY(-2px); /* Di chuyển nút lên khi hover */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ khi hover */
 }
 
-
-
-
-
-
-
-
-/* --- WELCOME SECTION (bên phải) --- */
+/* --- WELCOME SECTION --- */
+/* --- WELCOME SECTION --- */
 .welcome-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: flex; /* Sử dụng Flexbox */
     justify-content: center;
     align-items: center;
-    position: relative;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
+    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    height: 100vh; /* Chiếm toàn bộ chiều cao của màn hình */
 }
 
 .welcome-section .background-gif {
-    position: absolute;
+    position: absolute; /* Đặt GIF ở nền */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    object-fit: cover; /* Đảm bảo GIF phủ toàn bộ khu vực */
+    z-index: -1; /* Đặt GIF ở dưới các phần tử khác */
 }
 
 /* --- Thẻ trắng nội dung --- */
@@ -214,8 +196,7 @@ input:focus {
     max-width: 90%;
     box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
     text-align: center;
-    position: relative;
-    z-index: 10;
+    z-index: 10; /* Đảm bảo thẻ này nằm trên background GIF */
 }
 
 .welcome-card h2 {
@@ -227,7 +208,7 @@ input:focus {
 
 .welcome-card p {
     color: #333;
-    line-height: 1.6;
+    line-height: 1.6; /* Tăng khoảng cách dòng */
     font-size: 16px;
 }
 
@@ -236,39 +217,21 @@ input:focus {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* --- VIDEO SECTION --- */
 .video-section {
-    display: none;
-    position: fixed;
+    display: none; /* Mặc định ẩn */
+    position: fixed; /* Định vị cố định */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: #000;
+    height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+    background: #000; /* Nền đen */
     z-index: 100;
     padding: 20px;
 }
 
 .video-section.active {
-    display: flex;
+    display: flex; /* Hiển thị khi class 'active' được thêm vào */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -281,7 +244,7 @@ input:focus {
     max-width: 1400px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Cho phép các video gập xuống khi màn hình nhỏ */
     margin-bottom: 20px;
     margin-top: 80px;
 }
@@ -375,6 +338,7 @@ video {
     color: #856404;
 }
 
+/* --- Danh sách người dùng --- */
 .users-list {
     background: #f8f9fa;
     padding: 15px;
