@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- Thiết lập mã ký tự cho trang là UTF-8, hỗ trợ tiếng Việt -->
     <meta charset="UTF-8">
+    
+    <!-- Thiết lập để trang web có thể tự động thay đổi kích thước cho phù hợp với các thiết bị di động -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tiêu đề của trang, hiển thị trên tab trình duyệt -->
     <title>Đăng Nhập</title>
+    
+    <!-- Kết nối với tệp CSS bên ngoài để áp dụng kiểu dáng cho trang -->
     <link rel="stylesheet" href="login.css"> 
 </head>
 <body>
+    <!-- Phần chuyển tiếp trang, có thể dùng cho hiệu ứng chuyển cảnh -->
     <div class="page-transition"></div>
     
     <div class="container" id="mainContent">
+        <!-- Phần chào mừng người dùng -->
         <div class="welcome-section">
+            <!-- Hình ảnh GIF chào mừng, có thể là hiệu ứng động -->
             <img src="video1.gif" alt="Welcome GIF" class="background-gif">
             
             <div class="welcome-card">
+                <!-- Tiêu đề chào mừng -->
                 <h2>Bắt đầu cuộc gọi video đầu tiên của bạn ngay bây giờ.</h2>
+                <!-- Nội dung mô tả về trang -->
                 <p>Nếu bạn chưa có tài khoản, hãy tham gia cùng chúng tôi và kết nối với mọi người ngay lập tức.</p>
+                <!-- Nút bấm để chuyển sang trang đăng ký -->
                 <button class="btn-login" onclick="goToRegister()">Đăng ký</button>
             </div>
         </div>
 
+        <!-- Phần đăng nhập -->
         <div class="signup-card">
             <h1>Đăng Nhập</h1>
+            <!-- Biểu tượng tài khoản -->
             <img src="taikhoan.png" alt="Tài Khoản" class="ic-account">
+            <!-- Form đăng nhập -->
             <form>
                 <div class="form-group">
+                    <!-- Input tên đăng nhập -->
                     <input type="text" placeholder="Tên đăng nhập...." required>
                 </div>
                 <div class="form-group">
+                    <!-- Input mật khẩu -->
                     <input type="password" placeholder="Mật khẩu...." required>
                 </div>
+                <!-- Nút bấm đăng nhập -->
                 <button type="submit" class="btn-signup">Đăng nhập</button>
             </form>
         </div>
     </div>
 
+    <!-- Kết nối với tệp JavaScript để xử lý chuyển tiếp trang -->
     <script src="transition.js"></script>
 </body>
 </html>
