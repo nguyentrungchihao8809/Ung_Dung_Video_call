@@ -12,3 +12,5 @@ môn học Lập trình mạng
 #lịch trình (https://docs.google.com/spreadsheets/d/1kLOeK_1V13Mr63khJqJU6auJ_cKS5bVigE3e_S9Xfqk/edit?hl=vi&gid=156550951#gid=156550951)
 
 #Meet (https://meet.google.com/bbw-kvmh-mdo)
+
+#Phân công (https://docs.google.com/spreadsheets/d/1lopG5WpLboZfEv0LI-Qqf-Ozlszk8zyB-RBL7YWsfbk/edit?gid=0#gid=0)
