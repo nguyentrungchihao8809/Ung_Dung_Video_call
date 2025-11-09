@@ -7,48 +7,39 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <!-- ================= HEADER ================= -->
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">VideoCall</div> <!-- Logo của trang -->
+            <div class="logo">VideoCall</div>
             <nav class="nav">
-                <!-- Các nút điều hướng -->
-                <a href="register.html" class="btn btn-secondary">Đăng ký</a>
-                <a href="login.html" class="btn btn-primary">Đăng nhập</a>
-                <a href="index.html" class="btn btn-call">Tham gia cuộc gọi</a>
+                <a href="login.html" class="btn btn-primary">Đăng nhập</a> <!-- Đổi thành thẻ a với href -->
+                <a href="login.html" class="btn btn-call">Tham gia cuộc gọi</a> <!-- Nút tham gia cuộc gọi -->
+
             </nav>
         </div>
     </header>
 
-    <!-- ================= HERO SECTION ================= -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <!-- Video nền -->
-            <video autoplay loop muted class="background-video">
-                <source src="homevideo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-            <!-- Nội dung chính trong phần hero -->
-            <div class="hero-text">
-                <h1>Video call miễn phí - kết nối thế giới, dù bạn ở đâu</h1>
-                <p>
-                    Chỉ với một cuộc gọi, bạn có thể kết nối ngay lập tức với bất kỳ ai, dù ở đâu trên thế giới.
-                    Video call miễn phí không chỉ giúp bạn duy trì công việc, tham gia các buổi họp trực tuyến
-                    mà còn giữ liên lạc với gia đình và bạn bè, mọi lúc, mọi nơi. Kết nối chưa bao giờ dễ dàng
-                    và linh hoạt đến thế.
-                </p>
+                <video autoplay loop muted class="background-video">
+                    <source src="homevideo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-text">
+                    <h1>Video call miễn phí - kết nối thế giới, dù bạn ở đâu</h1>
+                    <p>Chỉ với một cuộc gọi, bạn có thể kết nối ngay lập tức với bất kỳ ai, dù ở đâu trên thế giới. Video call miễn phí không chỉ giúp bạn duy trì công việc, tham gia các buổi họp trực tuyến mà còn giữ liên lạc với gia đình và bạn bè, mọi lúc, mọi nơi. Kết nối chưa bao giờ dễ dàng và linh hoạt đến thế</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= FEATURES SECTION ================= -->
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <!-- Thẻ feature-card 1 -->
             <div class="feature-card">
                 <div class="feature-icon">
-                    <img src="traidat.jpg" alt="Tổ chức cuộc gọi mọi lúc, mọi nơi">
+                    <img src="traidat.png" alt="Tổ chức cuộc gọi mọi lúc, mọi nơi">
                 </div>
                 <div class="feature-content">
                     <h3>Tổ chức cuộc gọi mọi lúc, mọi nơi</h3>
@@ -56,21 +47,19 @@
                 </div>
             </div>
 
-            <!-- Thẻ feature-card 2 (đảo ngược vị trí icon và nội dung) -->
             <div class="feature-card feature-card-right">
                 <div class="feature-content">
                     <h3>Tổ chức cuộc gọi mọi lúc, mọi nơi</h3>
                     <p>Tham gia cuộc gọi video miễn phí, không giới hạn thời gian. Kết nối nhanh chóng, lập tức, trò chuyện trực tiếp và thoải mái mà không cần lo lắng về giới hạn.</p>
                 </div>
                 <div class="feature-icon">
-                    <img src="dongho.jpg" alt="Thời gian cuộc gọi">
+                    <img src="dongho.png" alt="Thời gian cuộc gọi">
                 </div>
             </div>
 
-            <!-- Thẻ feature-card 3 -->
             <div class="feature-card">
                 <div class="feature-icon">
-                    <img src="traitim.jpg" alt="Ứng dụng dễ sử dụng">
+                    <img src="traitim.png" alt="Ứng dụng dễ sử dụng">
                 </div>
                 <div class="feature-content">
                     <h3>Ứng dụng hợp để sử dụng</h3>
@@ -78,63 +67,52 @@
                 </div>
             </div>
 
-            <!-- Thẻ feature-card 4 -->
             <div class="feature-card feature-card-right">
                 <div class="feature-content">
                     <h3>Trải nghiệm chất lượng cao, đáng tin cậy</h3>
                     <p>Trải nghiệm video và âm thanh chất lượng cao, với tính năng khử tiếng ồn, hình nền ảo, bộ lọc, chia sẻ màn hình, ghi âm và nhiều hơn nữa.</p>
                 </div>
                 <div class="feature-icon">
-                    <img src="thuong.jpg" alt="Chất lượng cao, đáng tin cậy">
+                    <img src="thuong.png" alt="Chất lượng cao, đáng tin cậy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= VIDEO SECTION ================= -->
-    <section class="video-section">
-        <div class="container">
-            <h2>Xây dựng mối quan hệ lâu dài qua cuộc gọi video trực tiếp</h2>
-            <p class="video-description">
-                Dù ở bất kỳ đâu, cuộc gọi video trực tiếp giúp bạn cập nhật tin tức và duy trì kết nối,
-                mang lại cảm giác như đang gặp mặt trực tiếp. Với chất lượng video HD sắc nét,
-                phần mềm gọi video của chúng tôi biến mọi cuộc trò chuyện trở nên sống động,
-                nâng cao trải nghiệm gặp gỡ trực tuyến.
-            </p>
-
-            <!-- Hình minh họa riêng biệt -->
-            <div class="bantay-image">
-                <img src="bantay.jpg" alt="Chất lượng cao, đáng tin cậy">
-            </div>
+   <!-- Video Section -->
+<section class="video-section">
+    <div class="container">
+        <h2>Xây dựng mối quan hệ lâu dài qua cuộc gọi video trực tiếp</h2>
+        <p class="video-description">Dù ở bất kỳ đâu, cuộc gọi video trực tiếp giúp bạn cập nhật tin tức và duy trì kết nối, mang lại cảm giác như đang gặp mặt trực tiếp. Với chất lượng video HD sắc nét, phần mềm gọi video của chúng tôi biến mọi cuộc trò chuyện trở nên sống động, nâng cao trải nghiệm gặp gỡ trực tuyến.</p>
+        
+        <!-- Tách riêng ảnh bantay khỏi .feature-icon -->
+        <div class="bantay-image">
+            <img src="bantay.jpg" alt="Chất lượng cao, đáng tin cậy">
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ================= COMMUNITY SECTION ================= -->
-    <section class="community-section">
-        <div class="container">
-            <h2>Kết nối không giới hạn, tạo cơ hội không ngừng</h2>
-            <p class="community-description">
-                Web video call mang đến cơ hội kết nối mọi người từ xa, tạo ra những cuộc gặp gỡ đầy ý nghĩa
-                và dễ dàng xây dựng các mối quan hệ mới. Đây là công cụ mạnh mẽ giúp mở rộng cơ hội hợp tác,
-                học hỏi và phát triển, bất chấp khoảng cách địa lý.
-            </p>
-
-            <!-- Hình đại diện (avatar) cộng đồng -->
-            <div class="community-avatars">
-                <div class="community-row">
-                    <div class="community-avatar ca-1">
-                        <img src="ketnoi.jpg" alt="Avatar 1">
-                    </div>
+<!-- Community Section -->
+<section class="community-section">
+    <div class="container">
+        <h2>Kết nối không giới hạn, tạo cơ hội không ngừng</h2>
+        <p class="community-description">Web video call mang đến cơ hội kết nối mọi người từ xa, tạo ra những cuộc gặp gỡ đầy ý nghĩa và dễ dàng xây dựng các mối quan hệ mới. Đây là công cụ mạnh mẽ giúp mở rộng cơ hội hợp tác, học hỏi và phát triển, bất chấp khoảng cách địa lý.</p>
+        <div class="community-avatars">
+            <div class="community-row">
+                <!-- Avatar images, replace with your own images -->
+                <div class="community-avatar ca-1">
+                    <img src="ketnoi.jpg" alt="Avatar 1">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- Footer 
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 VideoCall. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>
