@@ -1,120 +1,134 @@
 /* --- RESET MARGIN & PADDING VÀ THIẾT LẬP BOX MODEL --- */
 * { 
-    margin: 0; /* Loại bỏ tất cả margin */
-    padding: 0; /* Loại bỏ tất cả padding */
-    box-sizing: border-box; /* Đảm bảo padding và border không ảnh hưởng đến kích thước tổng thể */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* --- BODY CƠ BẢN --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; /* Chọn font chữ */
-    background: #000; /* Nền màu đen */
-    display: flex; /* Sử dụng Flexbox để căn giữa nội dung */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    min-height: 100vh; /* Chiều cao của body chiếm 100% viewport */
-    overflow: hidden; /* Ẩn các phần tử vượt ngoài chiều cao */
-    position: relative; /* Định vị các phần tử con */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 /* --- PAGE TRANSITION OVERLAY --- */
 .page-transition {
-    position: fixed; /* Định vị cố định ở vị trí màn hình */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Chiếm hết chiều rộng */
-    height: 100%; /* Chiếm hết chiều cao */
-    background: #000; /* Màu nền đen */
-    z-index: 9999; /* Đảm bảo phần overlay nằm trên tất cả các phần tử khác */
-    pointer-events: none; /* Tắt các sự kiện chuột trên phần tử này */
-    opacity: 0; /* Mặc định ẩn */
-    transition: opacity 0.5s ease; /* Hiệu ứng mờ dần khi thay đổi opacity */
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .page-transition.active {
-    opacity: 1; /* Khi class 'active' được thêm vào, sẽ hiển thị */
+    opacity: 1;
 }
 
 /* --- NÚT QUAY LẠI --- */
 .back-button {
-    position: fixed; /* Định vị cố định */
-    top: 10px; /* Cách top 10px */
-    left: 15px; /* Cách trái 15px */
-    width: 50px; /* Kích thước nút */
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    width: 50px;
     height: 50px;
-    z-index: 1000; /* Đảm bảo nút luôn hiển thị trên các phần tử khác */
-    cursor: pointer; /* Chỉ thị con trỏ chuột khi hover */
-    transition: transform 0.3s; /* Hiệu ứng di chuyển khi hover */
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .back-button img {
-    width: 90%; /* Hình ảnh trong nút chiếm 90% chiều rộng */
-    height: 90%; /* Chiếm 90% chiều cao */
-    object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.3));
 }
 
 .back-button:hover {
-    transform: translateX(-5px); /* Di chuyển nút qua trái khi hover */
+    transform: translateX(-5px);
 }
 
 /* --- CONTAINER (Vùng chứa chính) --- */
 .container {
-    display: flex; /* Sử dụng Flexbox */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    width: 100%; /* Chiếm hết chiều rộng */
-    height: 100vh; /* Chiếm hết chiều cao */
-    gap: 40px; /* Khoảng cách giữa các phần tử con */
-    opacity: 0; /* Mặc định ẩn */
-    animation: slideInFromRight 0.8s ease forwards; /* Hiệu ứng slide-in từ phải sang trái */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 40px;
+    opacity: 0;
+    animation: slideInFromRight 0.8s ease forwards;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes slideInFromRight {
     from {
-        opacity: 0; /* Bắt đầu từ ẩn */
-        transform: translateX(100px); /* Bắt đầu từ phải */
+        opacity: 0;
+        transform: translateX(100px);
     }
     to {
-        opacity: 1; /* Kết thúc với trạng thái hiển thị */
-        transform: translateX(0); /* Dừng tại vị trí ban đầu */
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-/* --- FORM THAM GIA --- */
+/* --- FORM THAM GIA (DARK GLASSMORPHISM) --- */
 .signup-card {
-    background: #f5f5f5; /* Nền sáng */
-    border-radius: 30px; /* Bo tròn các góc */
-    padding: 50px 40px; /* Khoảng cách padding trong form */
+    background: rgba(40, 40, 40, 0.4);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 50px 40px;
     height: 700px;
     width: 600px;
-    margin-left: 50px; /* Khoảng cách từ bên trái */
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1); /* Đổ bóng cho form */
+    margin-left: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.signup-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .signup-card h1 {
     position: relative;
-    font-size: 42px; /* Kích thước chữ tiêu đề */
-    margin-bottom: 80px; /* Khoảng cách dưới tiêu đề */
-    text-align: left; /* Căn trái tiêu đề */
-    color: #000;
+    font-size: 42px;
+    margin-bottom: 80px;
+    text-align: left;
+    color: #ffffff;
     margin-left: 60px;
-    z-index: 1; /* Đảm bảo tiêu đề hiển thị trên các phần tử khác */
+    z-index: 1;
+    font-weight: 600;
 }
 
 .signup-card h1::after {
-    content: ''; /* Tạo một phần tử giả */
+    content: '';
     position: absolute;
     left: 0;
-    top: 75%; /* Vị trí của đường kẻ dưới */
+    top: 75%;
     width: 390px;
     height: 7px;
-    border-radius: 999px; /* Bo tròn đường kẻ */
-    background: linear-gradient(to right, #FD9CD8, #FD9CD8); /* Màu gradient cho đường kẻ */
-    z-index: -1; /* Đảm bảo đường kẻ nằm dưới tiêu đề */
+    border-radius: 999px;
+    background: linear-gradient(to right, #FD9CD8, #FD9CD8);
+    z-index: -1;
 }
 
 .form-group {
-    margin-bottom: 45px; /* Khoảng cách dưới giữa các nhóm input */
+    margin-bottom: 45px;
     width: 100%;
 }
 
@@ -122,38 +136,44 @@ input {
     width: 100%;
     height: 70px;
     padding: 18px 20px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 15px;
-    background: #e8e8e8;
+    background: rgba(60, 60, 60, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     font-size: 16px;
-    color: #333;
-    transition: all 0.3s; /* Hiệu ứng chuyển động khi thay đổi trạng thái */
-    margin-bottom: 50px; /* Khoảng cách giữa các input */
+    color: #ffffff;
+    transition: all 0.3s;
+    margin-bottom: 50px;
 }
 
 input::placeholder {
-    color: #aaa; /* Màu chữ placeholder */
+    color: rgba(255, 255, 255, 0.5);
 }
 
 input:focus {
-    outline: none; /* Loại bỏ viền khi input được focus */
-    background: #ddd; /* Đổi nền khi focus */
-    transform: translateY(-2px); /* Di chuyển input lên khi focus */
+    outline: none;
+    background: rgba(70, 70, 70, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* --- NÚT ĐĂNG KÝ --- */
+/* --- NÚT THAM GIA --- */
 #joinBtn {
     width: 65%;
     height: 70px;
     padding: 18px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    background: #3d3d3d;
+    background: rgba(80, 80, 80, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 40px; /* Khoảng cách trên nút */
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -161,77 +181,91 @@ input:focus {
 }
 
 #joinBtn:hover {
-    background: #2d2d2d; /* Màu nền khi hover */
-    transform: translateY(-2px); /* Di chuyển nút lên khi hover */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ khi hover */
+    background: rgba(100, 100, 100, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* --- WELCOME SECTION --- */
-/* --- WELCOME SECTION --- */
+#joinBtn:active {
+    transform: translateY(0);
+}
+
+/* --- WELCOME SECTION (bên phải) --- */
 .welcome-section {
-    position: relative;
-    display: flex; /* Sử dụng Flexbox */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
-    height: 100vh; /* Chiếm toàn bộ chiều cao của màn hình */
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .welcome-section .background-gif {
-    position: absolute; /* Đặt GIF ở nền */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Đảm bảo GIF phủ toàn bộ khu vực */
-    z-index: -1; /* Đặt GIF ở dưới các phần tử khác */
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6;
 }
 
-/* --- Thẻ trắng nội dung --- */
+/* --- Thẻ trắng nội dung (DARK GLASSMORPHISM) --- */
 .welcome-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(40, 40, 40, 0.5);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 25px;
     padding: 35px 40px;
     width: 450px;
     max-width: 90%;
-    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     text-align: center;
-    z-index: 10; /* Đảm bảo thẻ này nằm trên background GIF */
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.welcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 .welcome-card h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #000;
+    color: #ffffff;
     font-weight: 700;
 }
 
 .welcome-card p {
-    color: #333;
-    line-height: 1.6; /* Tăng khoảng cách dòng */
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
     font-size: 16px;
 }
 
-
-
-
-
-
 /* --- VIDEO SECTION --- */
 .video-section {
-    display: none; /* Mặc định ẩn */
-    position: fixed; /* Định vị cố định */
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
-    background: #000; /* Nền đen */
+    height: 100vh;
+    background: #000;
     z-index: 100;
     padding: 20px;
 }
 
 .video-section.active {
-    display: flex; /* Hiển thị khi class 'active' được thêm vào */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -244,19 +278,23 @@ input:focus {
     max-width: 1400px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Cho phép các video gập xuống khi màn hình nhỏ */
+    flex-wrap: wrap;
     margin-bottom: 20px;
     margin-top: 80px;
 }
 
 .video-container {
     position: relative;
-    background: #000;
-    border-radius: 10px;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
-    width: 640px;
-    height: 360px;
+    width: 690px; /*640*/
+    height: 420px;/*360*/
     flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 video {
@@ -269,11 +307,14 @@ video {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
     padding: 5px 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .controls {
@@ -289,36 +330,47 @@ video {
 
 .control-btn {
     padding: 12px 25px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 14px;
-    min-width: 120px;
-    border: none;
+    min-width: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
     transition: all 0.3s;
+    background: rgba(60, 60, 60, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(80, 80, 80, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
 .btn-danger {
-    background: #ffffff;
-    color: rgb(0, 0, 0);
+    background: rgba(220, 53, 69, 0.4);
+    color: rgb(255, 255, 255);
+    border-color: rgba(220, 53, 69, 0.5);
 }
 
 .btn-danger:hover {
-    background: #000000;
+    background: rgba(220, 53, 69, 0.6);
 }
 
 .btn-warning {
-    background: #ffffff;
-    color: #000000;
+    background: rgba(60, 60, 60, 0.5);
+    color: #ffffff;
 }
 
 .btn-warning:hover {
-    background: #000000;
+    background: rgba(80, 80, 80, 0.6);
 }
 
 .status {
     text-align: center;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px 25px;
+    border-radius: 12px;
     margin-bottom: 15px;
     font-weight: 600;
     position: fixed;
@@ -326,43 +378,55 @@ video {
     left: 50%;
     transform: translateX(-50%);
     min-width: 300px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .status.connected {
-    background: #d4edda;
-    color: #155724;
+    background: rgba(40, 167, 69, 0.3);
+    color: #ffffff;
+    border-color: rgba(40, 167, 69, 0.4);
 }
 
 .status.waiting {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(255, 193, 7, 0.3);
+    color: #ffffff;
+    border-color: rgba(255, 193, 7, 0.4);
 }
 
-/* --- Danh sách người dùng --- */
 .users-list {
-    background: #f8f9fa;
+    background: rgba(40, 40, 40, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 15px;
     position: fixed;
     top: 80px;
     right: 20px;
     min-width: 250px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .users-list h3 {
     margin-bottom: 10px;
-    color: #667eea;
+    color: #ffffff;
 }
 
 .user-item {
     padding: 8px;
-    background: white;
+    background: rgba(60, 60, 60, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin: 5px 0;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #ffffff;
 }
 
 /* --- Responsive cho màn nhỏ --- */
@@ -420,7 +484,7 @@ video {
         font-size: 32px;
     }
 
-    .btn-signup {
+    #joinBtn {
         width: 70%;
     }
 
