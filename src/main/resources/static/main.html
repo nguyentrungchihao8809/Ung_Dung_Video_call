@@ -53,20 +53,20 @@
 
 
                 <div class="video-container">
-                <video id="remoteVideo" autoplay muted playsinline></video>
+                <video id="remoteVideo" autoplay playsinline></video>
                 <div class="video-label">Đối phương</div>
             </div>
 
         </div>
         
         <div class="controls">
-            <!-- NÚT CAMERA với icon -->
-            <button class="control-btn btn-warning" id="cameraButton" onclick="toggleVideoWithIcon()">
-                <img id="cameraIcon" src="cam.png" alt="Camera" style="width: 30px; height: 30px; vertical-align: middle;">
+            <!-- NÚT CAMERA với icon - BỎ onclick -->
+            <button class="control-btn btn-warning" id="cameraButton">
+                <img id="cameraIcon" src="camon.png" alt="Camera" style="width: 30px; height: 30px; vertical-align: middle;">
             </button>
             
-            <!-- NÚT MIC với icon -->
-            <button class="control-btn btn-warning" id="micButton" onclick="toggleAudioWithIcon()">
+            <!-- NÚT MIC với icon - BỎ onclick -->
+            <button class="control-btn btn-warning" id="micButton">
                 <img id="micIcon" src="mic.png" alt="Microphone" style="width: 30px; height: 30px; vertical-align: middle;">
             </button>
             
@@ -79,60 +79,89 @@
 
     <script src="app.js"></script>
     
+    
+    
     <!-- SCRIPT CHUYỂN ĐỔI ICON -->
-    <script>
-        // Biến lưu trạng thái (mặc định: đang mở)
-        let isCameraOn = true;
-        let isMicOn = true;
+<!-- SCRIPT CHUYỂN ĐỔI ICON -->
+<!-- SCRIPT CHUYỂN ĐỔI ICON -->
+<!-- SCRIPT CHUYỂN ĐỔI ICON -->
+<script>
+    // Biến trạng thái
+    let isCameraOn = true;
+    let isMicOn = true;
+    
+    // Đợi trang load xong
+    window.addEventListener('load', function() {
         
-        // HÀM CHUYỂN ĐỔI CAMERA
-        function toggleVideoWithIcon() {
-            const cameraButton = document.getElementById('cameraButton');
-            const cameraIcon = document.getElementById('cameraIcon');
+        // === CAMERA ===
+        const cameraBtn = document.getElementById('cameraButton');
+        const cameraIcon = document.getElementById('cameraIcon');
+        
+        if (cameraBtn && cameraIcon) {
+            cameraBtn.addEventListener('click', function() {
+                // Toggle camera thật
+                if (typeof toggleVideo === 'function') {
+                    toggleVideo();
+                }
+                
+                // Đổi trạng thái
+                isCameraOn = !isCameraOn;
+                
+                // Đổi icon NGAY
+                cameraIcon.src = isCameraOn ? 'camon.png' : 'camoff.png';
+            });
             
-            // Gọi hàm toggleVideo gốc để tắt/bật camera thực sự
-            toggleVideo();
+            cameraBtn.addEventListener('mouseenter', function() {
+                cameraIcon.src = isCameraOn ? 'camoff.png' : 'camon.png';
+            });
             
-            // Đổi icon
-            if (isCameraOn) {
-                cameraIcon.src = 'camoff.png';  // Đổi sang icon tắt
-                cameraButton.style.background = '#dc3545'; // Đổi màu nút sang đỏ
-                isCameraOn = false;
-            } else {
-                cameraIcon.src = 'cam.png';     // Đổi sang icon mở
-                cameraButton.style.background = '#f9f9f9'; // Đổi màu nút về trắng
-                isCameraOn = true;
-            }
+            cameraBtn.addEventListener('mouseleave', function() {
+                cameraIcon.src = isCameraOn ? 'camon.png' : 'camoff.png';
+            });
         }
         
-        // HÀM CHUYỂN ĐỔI MIC
-        function toggleAudioWithIcon() {
-            const micButton = document.getElementById('micButton');
-            const micIcon = document.getElementById('micIcon');
+        // === MIC ===
+        const micBtn = document.getElementById('micButton');
+        const micIcon = document.getElementById('micIcon');
+        
+        if (micBtn && micIcon) {
+            micBtn.addEventListener('click', function() {
+                // Toggle mic thật
+                if (typeof toggleAudio === 'function') {
+                    toggleAudio();
+                }
+                
+                // Đổi trạng thái
+                isMicOn = !isMicOn;
+                
+                // Đổi icon NGAY
+                micIcon.src = isMicOn ? 'mic.png' : 'micoff.png';
+            });
             
-            // Gọi hàm toggleAudio gốc để tắt/bật mic thực sự
-            toggleAudio();
+            micBtn.addEventListener('mouseenter', function() {
+                micIcon.src = isMicOn ? 'micoff.png' : 'mic.png';
+            });
             
-            // Đổi icon
-            if (isMicOn) {
-                micIcon.src = 'micoff.png';     // Đổi sang icon tắt
-                micButton.style.background = '#dc3545'; // Đổi màu nút sang đỏ
-                isMicOn = false;
-            } else {
-                micIcon.src = 'mic.png';        // Đổi sang icon mở
-                micButton.style.background = '#f9f9f9'; // Đổi màu nút về trắng
-                isMicOn = true;
-            }
+            micBtn.addEventListener('mouseleave', function() {
+                micIcon.src = isMicOn ? 'mic.png' : 'micoff.png';
+            });
         }
         
-        // Cập nhật hàm leaveRoom để hiển thị icon phoneoff khi hover
-        document.getElementById('phoneButton').addEventListener('mouseenter', function() {
-            document.getElementById('phoneIcon').src = 'phoneoff.png';
-        });
+        // === PHONE ===
+        const phoneBtn = document.getElementById('phoneButton');
+        const phoneIcon = document.getElementById('phoneIcon');
         
-        document.getElementById('phoneButton').addEventListener('mouseleave', function() {
-            document.getElementById('phoneIcon').src = 'phone.png';
-        });
-    </script>
+        if (phoneBtn && phoneIcon) {
+            phoneBtn.addEventListener('mouseenter', function() {
+                phoneIcon.src = 'phoneoff.png';
+            });
+            
+            phoneBtn.addEventListener('mouseleave', function() {
+                phoneIcon.src = 'phone.png';
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
