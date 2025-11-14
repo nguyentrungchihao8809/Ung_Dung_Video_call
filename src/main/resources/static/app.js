@@ -325,25 +325,23 @@ function updateStatus(message, type) {
     statusDiv.className = 'status ' + type;
 }
 
-// Toggle video
+// Toggle video - CHỈ BẬT/TẮT CAMERA, KHÔNG THAY ĐỔI ICON
 function toggleVideo() {
-    const videoTrack = localStream.getVideoTracks()[0];
-    if (videoTrack) {
-        videoTrack.enabled = !videoTrack.enabled;
-        const btn = document.getElementById('toggleVideoBtn');
-        btn.textContent = videoTrack.enabled ? 'Tắt Camera' : 'Bật Camera';
-        btn.style.background = videoTrack.enabled ? '#ffc107' : '#28a745';
+    if (localStream) {
+        const videoTrack = localStream.getVideoTracks()[0];
+        if (videoTrack) {
+            videoTrack.enabled = !videoTrack.enabled;
+        }
     }
 }
 
-// Toggle audio
+// Toggle audio - CHỈ BẬT/TẮT MIC, KHÔNG THAY ĐỔI ICON
 function toggleAudio() {
-    const audioTrack = localStream.getAudioTracks()[0];
-    if (audioTrack) {
-        audioTrack.enabled = !audioTrack.enabled;
-        const btn = document.getElementById('toggleAudioBtn');
-        btn.textContent = audioTrack.enabled ? 'Tắt Mic' : 'Bật Mic';
-        btn.style.background = audioTrack.enabled ? '#ffc107' : '#28a745';
+    if (localStream) {
+        const audioTrack = localStream.getAudioTracks()[0];
+        if (audioTrack) {
+            audioTrack.enabled = !audioTrack.enabled;
+        }
     }
 }
 
@@ -380,7 +378,7 @@ function leaveRoom() {
         
         // Reset UI
         videoSection.classList.remove('active');
-        document.querySelector('.join-section').style.display = 'block';
+        document.querySelector('.signup-card').style.display = 'block';
         remoteVideo.srcObject = null;
         localVideo.srcObject = null;
         
