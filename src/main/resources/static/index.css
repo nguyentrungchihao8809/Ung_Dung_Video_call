@@ -291,8 +291,8 @@ input:focus {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     overflow: hidden;
-    width: 690px; /*640*/
-    height: 420px;/*360*/
+    width: 690px;
+    height: 420px;
     flex-shrink: 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
@@ -317,54 +317,121 @@ video {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* --- CONTROLS (NÚT ĐIỀU KHIỂN ĐÃ ĐƯỢC CẢI THIỆN) --- */
 .controls {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
+    gap: 20px;
     flex-wrap: wrap;
     position: fixed;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
+    padding: 15px 25px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
 .control-btn {
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-size: 14px;
-    min-width: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    padding: 16px 28px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    min-width: 120px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: all 0.3s;
-    background: rgba(60, 60, 60, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(60, 60, 60, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.control-btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .control-btn:hover {
-    background: rgba(80, 80, 80, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(80, 80, 80, 0.8);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
+.control-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Nút Danger (Leave Call) - Màu đỏ nổi bật */
 .btn-danger {
-    background: rgba(220, 53, 69, 0.4);
-    color: rgb(255, 255, 255);
-    border-color: rgba(220, 53, 69, 0.5);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.6), rgba(180, 35, 50, 0.6));
+    color: #ffffff;
+    border-color: rgba(220, 53, 69, 0.7);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-danger::before {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .btn-danger:hover {
-    background: rgba(220, 53, 69, 0.6);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.8), rgba(180, 35, 50, 0.8));
+    border-color: rgba(220, 53, 69, 0.9);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
 }
 
+/* Nút Warning (Toggle Camera/Mic) - Style đẹp mắt */
 .btn-warning {
-    background: rgba(60, 60, 60, 0.5);
+    background: linear-gradient(135deg, rgba(70, 70, 70, 0.6), rgba(50, 50, 50, 0.6));
     color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-warning::before {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .btn-warning:hover {
-    background: rgba(80, 80, 80, 0.6);
+    background: linear-gradient(135deg, rgba(90, 90, 90, 0.8), rgba(70, 70, 70, 0.8));
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* Hiệu ứng khi nút bị tắt (disabled state) */
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.control-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .status {
@@ -447,6 +514,18 @@ video {
         width: 90%;
         height: auto;
     }
+    
+    .controls {
+        flex-direction: row;
+        gap: 10px;
+        padding: 12px 20px;
+    }
+    
+    .control-btn {
+        min-width: 90px;
+        padding: 12px 20px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 968px) {
@@ -490,5 +569,16 @@ video {
 
     .welcome-card h2 {
         font-size: 24px;
+    }
+    
+    .control-btn {
+        min-width: 80px;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    
+    .controls {
+        bottom: 20px;
+        padding: 10px 15px;
     }
 }
